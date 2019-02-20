@@ -4,11 +4,7 @@
 import os, sys
 import time
 
-
-
 start_time = time.time()
-
-
 
 exclude = ["VirtualBox VMs",
            ".gnome2",
@@ -36,9 +32,8 @@ for element in exclude:
 
 options = " -a --partial --stats " + excl + "--link-dest=" + link_dest + " --log-file=" + logpath
 command = "rsync" + options  + sorce + backup_folder
+
 #print(command)
-
-
 result = os.system(command)
 #print(result)
 
@@ -60,7 +55,6 @@ os.system(command)
 end_time = time.time()
 print("Длительность создания ссылок ", end_time - start_time, " сек", file=open(short_log_path, "a"))
 
-
 # --------------------moveing links
 
 result = os.system('mv ' + logpath + " " + backup_folder + "/")
@@ -69,5 +63,3 @@ if result == 0:
 else:
     print("Ошибка перемещения лог-файла в папку: back-{time} Проверьте logfile! \n".format(time=current_time),
           file=open(short_log_path, "a"))
-
-
