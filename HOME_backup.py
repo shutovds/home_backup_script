@@ -63,3 +63,4 @@ if result == 0:
 else:
     print("Ошибка перемещения лог-файла в папку: back-{time} Проверьте logfile! \n".format(time=current_time),
           file=open(short_log_path, "a"))
+
